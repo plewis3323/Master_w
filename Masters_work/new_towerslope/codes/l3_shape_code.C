@@ -51,7 +51,7 @@ void testslope(int stats, double shift_factor, string f_1, string f_2, double st
     fitf_master->Smooth(2);
     grff = new TGraph(fitf_master);
 
-    TH1F* htally = new TH1F("htally", "", 2000, 0.0, 0.5);
+    TH1F* htally = new TH1F("htally", "", 2000, 0.0, 0.1);
     int nhistobins = 400;
 
     histCanvas->cd();
@@ -99,6 +99,8 @@ void testslope(int stats, double shift_factor, string f_1, string f_2, double st
         h2->Draw("same"); 
 
   
+  
+     /*
         // Check if the fits were successful
         if (fitResult1.Get() && fitResult2.Get()) {
             double basep1 = fitResult1->Parameter(1);
@@ -124,6 +126,18 @@ void testslope(int stats, double shift_factor, string f_1, string f_2, double st
         } else {
             cout << "Warning: Fit failed, skipping this iteration." << endl;
         }
+       */
+       
+        double basep1 = fitResult1->Parameter(1);
+        double shiftp1 = fitResult2->Parameter(1);
+        double sigma_basep1 = fitResult1->ParError(1);
+        double sigma_shiftp1 = fitResult2->ParError(1);
+        htally->Fill(sigma_shiftp1);  // Fill htally with each C_rel
+        cout << "Iteration " << k << ": p_1shift = " << shiftp1  << " ± " << sigma_shiftp1  << endl;
+       
+       
+       
+       
     }
     
 
@@ -160,12 +174,12 @@ void mill () {
     
     
     
-     testslope(1e6, 0.75, "Histo_Shape1", "U_Histo_tally1", 0.5, 1.2, c1, c1a);
-     testslope(1e6, 1.0, "Histo_Shape1", "U_Histo_tally1", 0.5, 1.2, c2, c2a);
-     testslope(1e6, 1.25, "Histo_Shape1", "U_Histo_tally1", 0.5, 1.2, c3, c3a);
-     testslope(1e6, 0.75, "Histo_Shape1", "U_Histo_tally1", 1.4, 3.0, c4, c4b);
-     testslope(1e6, 1.0, "Histo_Shape1", "U_Histo_tally1", 1.4, 3.0, c5, c5b);
-     testslope(1e6, 1.25, "Histo_Shape1", "U_Histo_tally1", 1.4, 3.0, c6, c6b);
+     testslope(1e6, 0.75, "Histo_Shape1", "Histo_tally1", 0.5, 1.2, c1, c1a);
+     testslope(1e6, 1.0, "Histo_Shape1", "Histo_tally1", 0.5, 1.2, c2, c2a);
+     testslope(1e6, 1.25, "Histo_Shape1", "Histo_tally1", 0.5, 1.2, c3, c3a);
+     testslope(1e6, 0.75, "Histo_Shape1", "Histo_tally1", 1.4, 3.0, c4, c4b);
+     testslope(1e6, 1.0, "Histo_Shape1", "Histo_tally1", 1.4, 3.0, c5, c5b);
+     testslope(1e6, 1.25, "Histo_Shape1", "Histo_tally1", 1.4, 3.0, c6, c6b);
     
     
     TFile *Spectral_data = new TFile("Spectral_mill_events_Utally.root", "RECREATE"); 
@@ -228,7 +242,7 @@ void ten_mill () {
     testslope(1e7, 1.25, "Histo_Shape1", "Histo_tally1", 1.4, 3.0, c6, c6b);
     
     
-    TFile *Spectral_data2 = new TFile("Spectral_ten_mill_events.root", "RECREATE"); 
+    TFile *Spectral_data2 = new TFile("Spectral_Uten_mill_events.root", "RECREATE"); 
     
      c1->Write(); 
      c2->Write();
@@ -278,7 +292,7 @@ void hun_mill_low () {
    
     
     
-    TFile *Spectral_data3 = new TFile("Spectral_mill_eventsL.root", "RECREATE"); 
+    TFile *Spectral_data3 = new TFile("Spectral_U_100_mill_eventsL.root", "RECREATE"); 
     
      c1->Write(); 
      c2->Write();
@@ -317,7 +331,7 @@ void hun_mill_high() {
     testslope(1e8, 1.0, "Histo_Shape1", "Histo_tally1", 1.4, 3.0, c5, c5b);
     testslope(1e8, 1.25, "Histo_Shape1", "Histo_tally1", 1.4, 3.0, c6, c6b);
     
-    TFile *Spectral_data4 = new TFile("Spectral_mill_eventsH.root", "RECREATE"); 
+    TFile *Spectral_data4 = new TFile("Spectral_U_100_mill_eventsH.root", "RECREATE"); 
 
     c4->Write(); 
     c5->Write(); 
@@ -373,7 +387,7 @@ void five_mill () {
     testslope(5e6, 1.25, "Histo_Shape1", "Histo_tally1", 1.4, 3.0, c6, c6b);
     
     
-    TFile *Spectral_dataA = new TFile("Spectral_five_mill_events.root", "RECREATE"); 
+    TFile *Spectral_dataA = new TFile("Spectral_U_five_mill_events.root", "RECREATE"); 
     
      c1->Write(); 
      c2->Write();
