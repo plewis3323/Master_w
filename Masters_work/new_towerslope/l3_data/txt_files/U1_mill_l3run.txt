@@ -1,6 +1,7 @@
 Script started on 2024-11-05 17:10:10-06:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="120" LINES="30"]
 [?2004h]0;plewis@MSI: ~/Masters_work/new_towerslope/codes[01;32mplewis@MSI[00m:[01;34m~/Masters_work/new_towerslope/codes[00m$ root
-[?2004l   ------------------------------------------------------------------
+[?2004l
+   ------------------------------------------------------------------
   | Welcome to ROOT 6.30/08                        https://root.cern |
   | (c) 1995-2024, The ROOT Team; conception: R. Brun, F. Rademakers |
   | Built for linuxx8664gcc on Jul 14 2024, 22:53:16                 |
@@ -1912,14 +1913,17 @@ p1                        =      1.12214   +/-   0.000980908
 Iteration 15: p_1shift = 1.12214 ± 0.000980908
 [0mroot [2] .q
 [0m[?2004h]0;plewis@MSI: ~/Masters_work/new_towerslope/codes[01;32mplewis@MSI[00m:[01;34m~/Masters_work/new_towerslope/codes[00m$ ls
-[?2004lMean_input.C                      U1_mill_l3run.txt  later_testslope.C  [0m[01;34mroot_file_Nov_1_24[0m  tst.C
+[?2004l
+Mean_input.C                      U1_mill_l3run.txt  later_testslope.C  [0m[01;34mroot_file_Nov_1_24[0m  tst.C
 Part2_New_testslope.C             l3_reorganize.C    [01;34mmisc_files[0m         [01;34mroot_files[0m          [01;34mtxt_file_Nov_1st_24[0m
 RMS_inp.C                         l3_shape_code.C    new_testslope.C    staterr_inp.C       [01;34mtxt_files[0m
 Spectral_mill_events_Utally.root  l3all_oe.root      p1_inp.C           testslope.C         var_size_binning_tower.C
 [?2004h]0;plewis@MSI: ~/Masters_work/new_towerslope/codes[01;32mplewis@MSI[00m:[01;34m~/Masters_work/new_towerslope/codes[00m$ script U1_mill_l3run.txt [1@0
-[?2004lScript started, output log file is 'U10_mill_l3run.txt'.
+[?2004l
+Script started, output log file is 'U10_mill_l3run.txt'.
 [?2004h]0;plewis@MSI: ~/Masters_work/new_towerslope/codes[01;32mplewis@MSI[00m:[01;34m~/Masters_work/new_towerslope/codes[00m$ root
-[?2004l   ------------------------------------------------------------------
+[?2004l
+   ------------------------------------------------------------------
   | Welcome to ROOT 6.30/08                        https://root.cern |
   | (c) 1995-2024, The ROOT Team; conception: R. Brun, F. Rademakers |
   | Built for linuxx8664gcc on Jul 14 2024, 22:53:16                 |
@@ -1961,7 +1965,8 @@ class TFitResult;
 [0mError in <ACLiC>: Executing '/snap/root-framework/936/usr/local/bin/rootcling -v0 "--lib-list-prefix=/home/plewis/Masters_work/new_towerslope/codes/l3_shape_code_C_ACLiC_map" -f "/home/plewis/Masters_work/new_towerslope/codes/l3_shape_code_C_ACLiC_dict.cxx" -I$ROOTSYS/include -I"/snap/root-framework/936/usr/local/etc/" -I"/snap/root-framework/936/usr/local/etc//cling" -I"/snap/root-framework/936/usr/local/etc//cling/plugins/include" -I"/snap/root-framework/936/usr/local/include/" -I"/snap/root-framework/936/usr/local/include" -D__ACLIC__  "/home/plewis/Masters_work/new_towerslope/codes/./l3_shape_code.C" "/home/plewis/Masters_work/new_towerslope/codes/l3_shape_code_C_ACLiC_linkdef.h"' failed!
 [0mroot [1] .q
 [0m[?2004h]0;plewis@MSI: ~/Masters_work/new_towerslope/codes[01;32mplewis@MSI[00m:[01;34m~/Masters_work/new_towerslope/codes[00m$ root
-[?2004l   ------------------------------------------------------------------
+[?2004l
+   ------------------------------------------------------------------
   | Welcome to ROOT 6.30/08                        https://root.cern |
   | (c) 1995-2024, The ROOT Team; conception: R. Brun, F. Rademakers |
   | Built for linuxx8664gcc on Jul 14 2024, 22:53:16                 |
@@ -3882,24 +3887,29 @@ p1                        =      1.01481   +/-   0.000490246
 Iteration 15: p_1shift = 1.01481 ± 0.000490246
 [0mroot [2] .q
 [0m[?2004h]0;plewis@MSI: ~/Masters_work/new_towerslope/codes[01;32mplewis@MSI[00m:[01;34m~/Masters_work/new_towerslope/codes[00m$ ls
-[?2004lMean_input.C                      U10_mill_l3run.txt  l3all_oe.root      [0m[01;34mroot_file_Nov_1_24[0m  [01;34mtxt_file_Nov_1st_24[0m
+[?2004l
+Mean_input.C                      U10_mill_l3run.txt  l3all_oe.root      [0m[01;34mroot_file_Nov_1_24[0m  [01;34mtxt_file_Nov_1st_24[0m
 Part2_New_testslope.C             U1_mill_l3run.txt   later_testslope.C  [01;34mroot_files[0m          [01;34mtxt_files[0m
 RMS_inp.C                         l3_reorganize.C     [01;34mmisc_files[0m         staterr_inp.C       var_size_binning_tower.C
 Spectral_Uten_mill_events.root    l3_shape_code.C     new_testslope.C    testslope.C
 Spectral_mill_events_Utally.root  l3_shape_code_C.d   p1_inp.C           tst.C
 [?2004h]0;plewis@MSI: ~/Masters_work/new_towerslope/codes[01;32mplewis@MSI[00m:[01;34m~/Masters_work/new_towerslope/codes[00m$ exit
-[?2004lexit
+[?2004l
+exit
 Script done.
 [?2004h]0;plewis@MSI: ~/Masters_work/new_towerslope/codes[01;32mplewis@MSI[00m:[01;34m~/Masters_work/new_towerslope/codes[00m$ ls
-[?2004lMean_input.C                      U10_mill_l3run.txt  l3all_oe.root      [0m[01;34mroot_file_Nov_1_24[0m  [01;34mtxt_file_Nov_1st_24[0m
+[?2004l
+Mean_input.C                      U10_mill_l3run.txt  l3all_oe.root      [0m[01;34mroot_file_Nov_1_24[0m  [01;34mtxt_file_Nov_1st_24[0m
 Part2_New_testslope.C             U1_mill_l3run.txt   later_testslope.C  [01;34mroot_files[0m          [01;34mtxt_files[0m
 RMS_inp.C                         l3_reorganize.C     [01;34mmisc_files[0m         staterr_inp.C       var_size_binning_tower.C
 Spectral_Uten_mill_events.root    l3_shape_code.C     new_testslope.C    testslope.C
 Spectral_mill_events_Utally.root  l3_shape_code_C.d   p1_inp.C           tst.C
 [?2004h]0;plewis@MSI: ~/Masters_work/new_towerslope/codes[01;32mplewis@MSI[00m:[01;34m~/Masters_work/new_towerslope/codes[00m$ lsscript U10_mill_l3run.txt [1P[1P[1@f[1@i[1@v[1@e
-[?2004lScript started, output log file is 'Ufive_mill_l3run.txt'.
+[?2004l
+Script started, output log file is 'Ufive_mill_l3run.txt'.
 [?2004h]0;plewis@MSI: ~/Masters_work/new_towerslope/codes[01;32mplewis@MSI[00m:[01;34m~/Masters_work/new_towerslope/codes[00m$ root
-[?2004l   ------------------------------------------------------------------
+[?2004l
+   ------------------------------------------------------------------
   | Welcome to ROOT 6.30/08                        https://root.cern |
   | (c) 1995-2024, The ROOT Team; conception: R. Brun, F. Rademakers |
   | Built for linuxx8664gcc on Jul 14 2024, 22:53:16                 |
@@ -5853,10 +5863,12 @@ p1                        =      1.17391   +/-   0.000412788
 Iteration 15: p_1shift = 1.17391 ± 0.000412788
 [0mroot [2] .q
 [0m[?2004h]0;plewis@MSI: ~/Masters_work/new_towerslope/codes[01;32mplewis@MSI[00m:[01;34m~/Masters_work/new_towerslope/codes[00m$ exit
-[?2004lexit
+[?2004l
+exit
 Script done.
 [?2004h]0;plewis@MSI: ~/Masters_work/new_towerslope/codes[01;32mplewis@MSI[00m:[01;34m~/Masters_work/new_towerslope/codes[00m$ ls
-[?2004lMean_input.C                      U1_mill_l3run.txt     [0m[01;34mmisc_files[0m          tst.C
+[?2004l
+Mean_input.C                      U1_mill_l3run.txt     [0m[01;34mmisc_files[0m          tst.C
 Part2_New_testslope.C             Ufive_mill_l3run.txt  new_testslope.C     [01;34mtxt_file_Nov_1st_24[0m
 RMS_inp.C                         l3_reorganize.C       p1_inp.C            [01;34mtxt_files[0m
 Spectral_U_five_mill_events.root  l3_shape_code.C       [01;34mroot_file_Nov_1_24[0m  var_size_binning_tower.C
@@ -5864,9 +5876,11 @@ Spectral_Uten_mill_events.root    l3_shape_code_C.d     [01;34mroot_files[0m
 Spectral_mill_events_Utally.root  l3all_oe.root         staterr_inp.C
 U10_mill_l3run.txt                later_testslope.C     testslope.C
 [?2004h]0;plewis@MSI: ~/Masters_work/new_towerslope/codes[01;32mplewis@MSI[00m:[01;34m~/Masters_work/new_towerslope/codes[00m$ root[K[K[K[Klsscript Ufive_mill_l3run.txt [C[C[C[1P[1P[1P[1P[1@1[1@0[1@0
-[?2004lScript started, output log file is 'U100_mill_l3run.txt'.
+[?2004l
+Script started, output log file is 'U100_mill_l3run.txt'.
 [?2004h]0;plewis@MSI: ~/Masters_work/new_towerslope/codes[01;32mplewis@MSI[00m:[01;34m~/Masters_work/new_towerslope/codes[00m$ ro[K[Kroot
-[?2004l   ------------------------------------------------------------------
+[?2004l
+   ------------------------------------------------------------------
   | Welcome to ROOT 6.30/08                        https://root.cern |
   | (c) 1995-2024, The ROOT Team; conception: R. Brun, F. Rademakers |
   | Built for linuxx8664gcc on Jul 14 2024, 22:53:16                 |
@@ -5877,7 +5891,8 @@ U10_mill_l3run.txt                later_testslope.C     testslope.C
 
 [0mroot [0] .q[D[Dfive_mill[0m[38;5;83m[1m()[D[D[D[D[D[D[D[D[D[D[D[0m.L l3_shape_code.C[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K.q
 [0m[?2004h]0;plewis@MSI: ~/Masters_work/new_towerslope/codes[01;32mplewis@MSI[00m:[01;34m~/Masters_work/new_towerslope/codes[00m$ ls
-[?2004lMean_input.C                      U10_mill_l3run.txt    later_testslope.C   testslope.C
+[?2004l
+Mean_input.C                      U10_mill_l3run.txt    later_testslope.C   testslope.C
 Part2_New_testslope.C             U1_mill_l3run.txt     [0m[01;34mmisc_files[0m          tst.C
 RMS_inp.C                         Ufive_mill_l3run.txt  new_testslope.C     [01;34mtxt_file_Nov_1st_24[0m
 Spectral_U_five_mill_events.root  l3_reorganize.C       p1_inp.C            [01;34mtxt_files[0m
@@ -5885,70 +5900,110 @@ Spectral_Uten_mill_events.root    l3_shape_code.C       [01;34mroot_file_Nov_1_
 Spectral_mill_events_Utally.root  l3_shape_code_C.d     [01;34mroot_files[0m
 U100_mill_l3run.txt               l3all_oe.root         staterr_inp.C
 [?2004h]0;plewis@MSI: ~/Masters_work/new_towerslope/codes[01;32mplewis@MSI[00m:[01;34m~/Masters_work/new_towerslope/codes[00m$ cd
-[?2004l[?2004h]0;plewis@MSI: ~[01;32mplewis@MSI[00m:[01;34m~[00m$ ls
-[?2004l[0m[01;34mAll_coding_notes[0m  [01;34mMaster_w[0m      [01;34mSim[0m               [01;34mdata[0m    [01;34mkeyfiles[0m  [01;34mtest_git_setup[0m
+[?2004l
+[?2004h]0;plewis@MSI: ~[01;32mplewis@MSI[00m:[01;34m~[00m$ ls
+[?2004l
+[0m[01;34mAll_coding_notes[0m  [01;34mMaster_w[0m      [01;34mSim[0m               [01;34mdata[0m    [01;34mkeyfiles[0m  [01;34mtest_git_setup[0m
 [01;34mGradlab[0m           [01;34mMasters_work[0m  [01;34mUbuntu_Dir_clean[0m  [01;34mgeant4[0m  [01;34msnap[0m      [01;34mtmp[0m
 [?2004h]0;plewis@MSI: ~[01;32mplewis@MSI[00m:[01;34m~[00m$ cp Master_w/
-[?2004lcp: missing destination file operand after 'Master_w/'
+[?2004l
+cp: missing destination file operand after 'Master_w/'
 Try 'cp --help' for more information.
 [?2004h]0;plewis@MSI: ~[01;32mplewis@MSI[00m:[01;34m~[00m$ ls[K[Kcd Master_w/
-[?2004l[?2004h]0;plewis@MSI: ~/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w[00m$ ls
-[?2004lLICENSE  [0m[01;34mMaster_w[0m  [01;34mMasters_work[0m  README.md
+[?2004l
+[?2004h]0;plewis@MSI: ~/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w[00m$ ls
+[?2004l
+LICENSE  [0m[01;34mMaster_w[0m  [01;34mMasters_work[0m  README.md
 [?2004h]0;plewis@MSI: ~/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w[00m$ cd Master_w
-[?2004l[?2004h]0;plewis@MSI: ~/Master_w/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w/Master_w[00m$ ls
-[?2004lLICENSE  [0m[01;34mMaster_w[0m  README.md
+[?2004l
+[?2004h]0;plewis@MSI: ~/Master_w/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w/Master_w[00m$ ls
+[?2004l
+LICENSE  [0m[01;34mMaster_w[0m  README.md
 [?2004h]0;plewis@MSI: ~/Master_w/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w/Master_w[00m$ cd Master_w/
-[?2004l[?2004h]0;plewis@MSI: ~/Master_w/Master_w/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w/Master_w/Master_w[00m$ ls
-[?2004lLICENSE  README.md
+[?2004l
+[?2004h]0;plewis@MSI: ~/Master_w/Master_w/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w/Master_w/Master_w[00m$ ls
+[?2004l
+LICENSE  README.md
 [?2004h]0;plewis@MSI: ~/Master_w/Master_w/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w/Master_w/Master_w[00m$ cd ..
-[?2004l[?2004h]0;plewis@MSI: ~/Master_w/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w/Master_w[00m$ cd ..
-[?2004l[?2004h]0;plewis@MSI: ~/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w[00m$ cd ..
-[?2004l[?2004h]0;plewis@MSI: ~[01;32mplewis@MSI[00m:[01;34m~[00m$ cd Master_w/
-[?2004l[?2004h]0;plewis@MSI: ~/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w[00m$ ls
-[?2004lLICENSE  [0m[01;34mMaster_w[0m  [01;34mMasters_work[0m  README.md
+[?2004l
+[?2004h]0;plewis@MSI: ~/Master_w/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w/Master_w[00m$ cd ..
+[?2004l
+[?2004h]0;plewis@MSI: ~/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w[00m$ cd ..
+[?2004l
+[?2004h]0;plewis@MSI: ~[01;32mplewis@MSI[00m:[01;34m~[00m$ cd Master_w/
+[?2004l
+[?2004h]0;plewis@MSI: ~/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w[00m$ ls
+[?2004l
+LICENSE  [0m[01;34mMaster_w[0m  [01;34mMasters_work[0m  README.md
 [?2004h]0;plewis@MSI: ~/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w[00m$ git init
-[?2004lReinitialized existing Git repository in /home/plewis/Master_w/.git/
+[?2004l
+Reinitialized existing Git repository in /home/plewis/Master_w/.git/
 [?2004h]0;plewis@MSI: ~/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w[00m$ git add /home/plewis/Masters_work/te[K[K[K[K[K[Kork/
-[?2004lfatal: /home/plewis/Masters_work/: '/home/plewis/Masters_work/' is outside repository at '/home/plewis/Master_w'
+[?2004l
+fatal: /home/plewis/Masters_work/: '/home/plewis/Masters_work/' is outside repository at '/home/plewis/Master_w'
 [?2004h]0;plewis@MSI: ~/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w[00m$ c[Kls
-[?2004lLICENSE  [0m[01;34mMaster_w[0m  [01;34mMasters_work[0m  README.md
+[?2004l
+LICENSE  [0m[01;34mMaster_w[0m  [01;34mMasters_work[0m  README.md
 [?2004h]0;plewis@MSI: ~/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w[00m$ cd Master_w/[Kork[K[K[K[K[Ks_work/
-[?2004l[?2004h]0;plewis@MSI: ~/Master_w/Masters_work[01;32mplewis@MSI[00m:[01;34m~/Master_w/Masters_work[00m$ ls
-[?2004l[0m[01;34mnew_towerslope[0m  [01;34mtowerslope[0m
+[?2004l
+[?2004h]0;plewis@MSI: ~/Master_w/Masters_work[01;32mplewis@MSI[00m:[01;34m~/Master_w/Masters_work[00m$ ls
+[?2004l
+[0m[01;34mnew_towerslope[0m  [01;34mtowerslope[0m
 [?2004h]0;plewis@MSI: ~/Master_w/Masters_work[01;32mplewis@MSI[00m:[01;34m~/Master_w/Masters_work[00m$ cd new_towerslope/
-[?2004l[?2004h]0;plewis@MSI: ~/Master_w/Masters_work/new_towerslope[01;32mplewis@MSI[00m:[01;34m~/Master_w/Masters_work/new_towerslope[00m$ la
-[?2004l[0m[01;34mVariable_binning_data[0m  [01;34mcodes[0m  [01;34ml3_data[0m
+[?2004l
+[?2004h]0;plewis@MSI: ~/Master_w/Masters_work/new_towerslope[01;32mplewis@MSI[00m:[01;34m~/Master_w/Masters_work/new_towerslope[00m$ la
+[?2004l
+[0m[01;34mVariable_binning_data[0m  [01;34mcodes[0m  [01;34ml3_data[0m
 [?2004h]0;plewis@MSI: ~/Master_w/Masters_work/new_towerslope[01;32mplewis@MSI[00m:[01;34m~/Master_w/Masters_work/new_towerslope[00m$ cd codes/
-[?2004l[?2004h]0;plewis@MSI: ~/Master_w/Masters_work/new_towerslope/codes[01;32mplewis@MSI[00m:[01;34m~/Master_w/Masters_work/new_towerslope/codes[00m$ ls
-[?2004lMean_input.C           l3_reorganize.C  later_testslope.C  p1_inp.C            staterr_inp.C  [0m[01;34mtxt_file_Nov_1st_24[0m
+[?2004l
+[?2004h]0;plewis@MSI: ~/Master_w/Masters_work/new_towerslope/codes[01;32mplewis@MSI[00m:[01;34m~/Master_w/Masters_work/new_towerslope/codes[00m$ ls
+[?2004l
+Mean_input.C           l3_reorganize.C  later_testslope.C  p1_inp.C            staterr_inp.C  [0m[01;34mtxt_file_Nov_1st_24[0m
 Part2_New_testslope.C  l3_shape_code.C  [01;34mmisc_files[0m         [01;34mroot_file_Nov_1_24[0m  testslope.C    [01;34mtxt_files[0m
 RMS_inp.C              l3all_oe.root    new_testslope.C    [01;34mroot_files[0m          tst.C          var_size_binning_tower.C
 [?2004h]0;plewis@MSI: ~/Master_w/Masters_work/new_towerslope/codes[01;32mplewis@MSI[00m:[01;34m~/Master_w/Masters_work/new_towerslope/codes[00m$ cd ..
-[?2004l[?2004h]0;plewis@MSI: ~/Master_w/Masters_work/new_towerslope[01;32mplewis@MSI[00m:[01;34m~/Master_w/Masters_work/new_towerslope[00m$ l
-[?2004l[0m[01;34mVariable_binning_data[0m/  [01;34mcodes[0m/  [01;34ml3_data[0m/
+[?2004l
+[?2004h]0;plewis@MSI: ~/Master_w/Masters_work/new_towerslope[01;32mplewis@MSI[00m:[01;34m~/Master_w/Masters_work/new_towerslope[00m$ l
+[?2004l
+[0m[01;34mVariable_binning_data[0m/  [01;34mcodes[0m/  [01;34ml3_data[0m/
 [?2004h]0;plewis@MSI: ~/Master_w/Masters_work/new_towerslope[01;32mplewis@MSI[00m:[01;34m~/Master_w/Masters_work/new_towerslope[00m$ ls
-[?2004l[0m[01;34mVariable_binning_data[0m  [01;34mcodes[0m  [01;34ml3_data[0m
+[?2004l
+[0m[01;34mVariable_binning_data[0m  [01;34mcodes[0m  [01;34ml3_data[0m
 [?2004h]0;plewis@MSI: ~/Master_w/Masters_work/new_towerslope[01;32mplewis@MSI[00m:[01;34m~/Master_w/Masters_work/new_towerslope[00m$ cd ..
-[?2004l[?2004h]0;plewis@MSI: ~/Master_w/Masters_work[01;32mplewis@MSI[00m:[01;34m~/Master_w/Masters_work[00m$ ls
-[?2004l[0m[01;34mnew_towerslope[0m  [01;34mtowerslope[0m
-[?2004h]0;plewis@MSI: ~/Master_w/Masters_work[01;32mplewis@MSI[00m:[01;34m~/Master_w/Masters_work[00m$ cd ..
-[?2004l[?2004h]0;plewis@MSI: ~/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w[00m$ l
-[?2004lLICENSE  [0m[01;34mMaster_w[0m/  [01;34mMasters_work[0m/  README.md
-[?2004h]0;plewis@MSI: ~/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w[00m$ ls
-[?2004lLICENSE  [0m[01;34mMaster_w[0m  [01;34mMasters_work[0m  README.md
-[?2004h]0;plewis@MSI: ~/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w[00m$ cp .h[K[K/[KMasters_work/[K .[K/home/plewis/Master_w/
-[?2004lcp: -r not specified; omitting directory 'Masters_work'
-[?2004h]0;plewis@MSI: ~/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w[00m$ cp Masters_work /home/plewis/Master_w/[C[C[1P[1P[1@c[1@p[C[1@ [1@-[1@r
-[?2004lcp: 'Masters_work' and '/home/plewis/Master_w/Masters_work' are the same file
-[?2004h]0;plewis@MSI: ~/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w[00m$ ls
-[?2004lLICENSE  [0m[01;34mMaster_w[0m  [01;34mMasters_work[0m  README.md
-[?2004h]0;plewis@MSI: ~/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w[00m$ cd Master[K[K[K[Ksters_work/
-[?2004l[?2004h]0;plewis@MSI: ~/Master_w/Masters_work[01;32mplewis@MSI[00m:[01;34m~/Master_w/Masters_work[00m$ la
-[?2004l[0m[01;34mnew_towerslope[0m  [01;34mtowerslope[0m
+[?2004l
 [?2004h]0;plewis@MSI: ~/Master_w/Masters_work[01;32mplewis@MSI[00m:[01;34m~/Master_w/Masters_work[00m$ ls
-[?2004l[0m[01;34mnew_towerslope[0m  [01;34mtowerslope[0m
+[?2004l
+[0m[01;34mnew_towerslope[0m  [01;34mtowerslope[0m
+[?2004h]0;plewis@MSI: ~/Master_w/Masters_work[01;32mplewis@MSI[00m:[01;34m~/Master_w/Masters_work[00m$ cd ..
+[?2004l
+[?2004h]0;plewis@MSI: ~/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w[00m$ l
+[?2004l
+LICENSE  [0m[01;34mMaster_w[0m/  [01;34mMasters_work[0m/  README.md
+[?2004h]0;plewis@MSI: ~/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w[00m$ ls
+[?2004l
+LICENSE  [0m[01;34mMaster_w[0m  [01;34mMasters_work[0m  README.md
+[?2004h]0;plewis@MSI: ~/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w[00m$ cp .h[K[K/[KMasters_work/[K .[K/home/plewis/Master_w/
+[?2004l
+cp: -r not specified; omitting directory 'Masters_work'
+[?2004h]0;plewis@MSI: ~/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w[00m$ cp Masters_work /home/plewis/Master_w/[C[C[1P[1P[1@c[1@p[C[1@ [1@-[1@r
+[?2004l
+cp: 'Masters_work' and '/home/plewis/Master_w/Masters_work' are the same file
+[?2004h]0;plewis@MSI: ~/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w[00m$ ls
+[?2004l
+LICENSE  [0m[01;34mMaster_w[0m  [01;34mMasters_work[0m  README.md
+[?2004h]0;plewis@MSI: ~/Master_w[01;32mplewis@MSI[00m:[01;34m~/Master_w[00m$ cd Master[K[K[K[Ksters_work/
+[?2004l
+[?2004h]0;plewis@MSI: ~/Master_w/Masters_work[01;32mplewis@MSI[00m:[01;34m~/Master_w/Masters_work[00m$ la
+[?2004l
+[0m[01;34mnew_towerslope[0m  [01;34mtowerslope[0m
+[?2004h]0;plewis@MSI: ~/Master_w/Masters_work[01;32mplewis@MSI[00m:[01;34m~/Master_w/Masters_work[00m$ ls
+[?2004l
+[0m[01;34mnew_towerslope[0m  [01;34mtowerslope[0m
 [?2004h]0;plewis@MSI: ~/Master_w/Masters_work[01;32mplewis@MSI[00m:[01;34m~/Master_w/Masters_work[00m$ cd new_towerslope/
-[?2004l[?2004h]0;plewis@MSI: ~/Master_w/Masters_work/new_towerslope[01;32mplewis@MSI[00m:[01;34m~/Master_w/Masters_work/new_towerslope[00m$ la[Ks
-[?2004l[0m[01;34mVariable_binning_data[0m  [01;34mcodes[0m  [01;34ml3_data[0m
+[?2004l
+[?2004h]0;plewis@MSI: ~/Master_w/Masters_work/new_towerslope[01;32mplewis@MSI[00m:[01;34m~/Master_w/Masters_work/new_towerslope[00m$ la[Ks
+[?2004l
+[0m[01;34mVariable_binning_data[0m  [01;34mcodes[0m  [01;34ml3_data[0m
 [?2004h]0;plewis@MSI: ~/Master_w/Masters_work/new_towerslope[01;32mplewis@MSI[00m:[01;34m~/Master_w/Masters_work/new_towerslope[00m$ cd codes/
-[?2004l[?2004h
+[?2004l
+[?2004h
