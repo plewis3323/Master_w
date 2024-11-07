@@ -62,12 +62,12 @@ void CreateLargeTableCanvas(TGraph* graph1a, TGraph* graph5a,
 void Mill_Mean_input(TCanvas* Inputs1) {
     Inputs1->cd(); 
     const int n = 3; 
-    double std1a[3] =  {0.0113362, 0.0290233, 0.0435273};
-    double std5a[3] =  {0.0198582, 0.0214558, 0.00492899};
-    double std10a[3] =  {0.0149625, 0.0183651, 0.0217841};
-    double std10b[3] =  {0.00173773, 0.000947987, 0.00742644};
-    double std100a[3] =  {0.00670993, 0.00752376, 0.00886787};
-    double std100b[3] =  {0.00116254, 0.00811689, 0.000250781};
+    double std1a[3] =  {0.0449142, 0.0412082, 0.0281833};
+    double std5a[3] =  {0.000721144, 0.0231889, 0.000315954};
+    double std10a[3] =  {0.0220852, 0.0213361, 0.0143617};
+    double std10b[3] =  {0.0158017, 0.0115265, 0.00418948};
+    double std100a[3] =  {0.000108382, 0.00716255, 0.00540135};
+    double std100b[3] =  {0.000364507, 0.0104597, 0.00141638};
     double Input[3]  = {0.75, 1.0, 1.25};
 
     // Create TGraphErrors
@@ -131,7 +131,7 @@ void Mill_Mean_input(TCanvas* Inputs1) {
     Inputs1->Update();
 
     // Open a new root file to store canvases and tables
-    TFile *Mean_inp = new TFile("Spectral_events_Stat_error_inp.root", "RECREATE");
+    TFile *Mean_inp = new TFile("Spectral_events_Stat_error(p1)_inp.root", "RECREATE");
 
     // Write the main canvas (graphs)
     Inputs1->Write();
