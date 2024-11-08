@@ -28,41 +28,46 @@ Double_t fitf(Double_t* x, Double_t* par)
 
 void testslope(int stats, double shift_factor, string f_1, string f_2, double startR, double EndR, TCanvas* histCanvas, TCanvas* tallyCanvas)
 {
-    string f_e = ".root";
+ string f_e = ".root";
     int offset = 5;
 
+    // Load the histogram from l3all_oe.root
     TFile* file = TFile::Open("l3all_oe.root");
     if (!file || file->IsZombie()) {
         cout << "Failed to open the file!" << endl;
         return;
     }
-    TH1F* histo = (TH1F*)file->Get("hcalout_eta_24"); 
+    TH1F* histo = (TH1F*)file->Get("hcalout_eta_24"); // Use the actual histogram name from the file
     if (!histo) {
         cout << "Failed to get the histogram!" << endl;
         return;
     }
+    
+    
+     // Rebin the histogram to reduce the number of bins from 1,000,000 to 100,000
+            int originalBins = histo->GetNbinsX();
+            int targetBins = 100000;
+            int rebinFactor = originalBins / targetBins;
+            histo->Rebin(rebinFactor); // Adjust the rebinning factor to achieve the desired number of bins
+    
+    
 
-    int originalBins = histo->GetNbinsX();
-    int targetBins = 100000;
-    int rebinFactor = originalBins / targetBins;
-    histo->Rebin(rebinFactor);
+    
 
     fitf_master = (TH1F*)histo->Clone("fmaster");
     fitf_master->Smooth(2);
+
     grff = new TGraph(fitf_master);
 
-    TH1F* htally = new TH1F("htally", "", 2000, 0.0, 0.1);
+    TH1F* htally = new TH1F("htally", "", 2000, 0, 2);
     int nhistobins = 400;
-
-    histCanvas->cd();
-
-    // Vector to store calculated C_rel values and uncertainties
-    vector<double> C_rel_values;
-    vector<double> C_rel_uncertainties;
+    
+    // Use provided canvas for histograms (e.g., c1, c2, c3)
+    histCanvas->cd();  // Select the canvas
 
     for (int k = 0; k < 16; k++) {
-        
         gRandom->SetSeed(9939 + offset + k);
+
         TH1F* h1 = new TH1F("h1", "", nhistobins, 0, 10);
 
         for (int i = 0; i < stats; i++) {
@@ -91,14 +96,18 @@ void testslope(int stats, double shift_factor, string f_1, string f_2, double st
 
         TF1* myexpo = new TF1("myexpo", fitf, 0.1, 10, 2);
         myexpo->SetParameters(1e4, 1.0);
-        TFitResultPtr fitResult1 = h1->Fit("myexpo", "S", "", startR, EndR);
-        TFitResultPtr fitResult2 = h2->Fit("myexpo", "S", "", startR, EndR);
+        h2->Fit("myexpo", "", "", startR, EndR);
+        h1->Fit("myexpo", "", "", startR, EndR); 
         h1->SetLineColor(2);
         h2->SetLineColor(3);
         h1->Draw("same");
         h2->Draw("same"); 
-
-  
+        TF1 * ff2 = h2->GetFunction("myexpo");
+        float basep1 = 1.0;
+        float shiftp1 = ff2->GetParameter(1);
+        cout << "==== ratio is " << basep1 / shiftp1 << endl;
+        cout << "param 0 " << ff2->GetParameter(0) << endl;
+        htally->Fill(ff2->GetParError(1));
   
      /*
         // Check if the fits were successful
@@ -128,13 +137,15 @@ void testslope(int stats, double shift_factor, string f_1, string f_2, double st
         }
        */
        
+       
+       /*
         double basep1 = fitResult1->Parameter(1);
         double shiftp1 = fitResult2->Parameter(1);
         double sigma_basep1 = fitResult1->ParError(1);
         double sigma_shiftp1 = fitResult2->ParError(1);
-        htally->Fill(sigma_shiftp1);  // Fill htally with each C_rel
+        htally->Fill(basep1/shiftp1);  // Fill htally with each C_rel
         cout << "Iteration " << k << ": p_1shift = " << shiftp1  << " ± " << sigma_shiftp1  << endl;
-       
+       */ 
        
        
        
