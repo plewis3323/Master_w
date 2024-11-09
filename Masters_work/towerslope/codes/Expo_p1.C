@@ -25,70 +25,36 @@ Double_t fitf(Double_t* x, Double_t* par)
 }
 
 
-
-void testslope(int stats, double shift_factor, string f_1, string f_2, double startR, double EndR, TCanvas* histCanvas, TCanvas* tallyCanvas)
-{
- string f_e = ".root";
+void testslope(int stats, double shift_factor, string f_1, string f_2, double startR, double EndR, TCanvas* histCanvas, TCanvas* tallyCanvas) {
     int offset = 5;
-
-    // Load the histogram from l3all_oe.root
-    TFile* file = TFile::Open("l3all_oe.root");
-    if (!file || file->IsZombie()) {
-        cout << "Failed to open the file!" << endl;
-        return;
-    }
-    TH1F* histo = (TH1F*)file->Get("hcalout_eta_24"); // Use the actual histogram name from the file
-    if (!histo) {
-        cout << "Failed to get the histogram!" << endl;
-        return;
-    }
-    
-    
-     // Rebin the histogram to reduce the number of bins from 1,000,000 to 100,000
-            int originalBins = histo->GetNbinsX();
-            int targetBins = 100000;
-            int rebinFactor = originalBins / targetBins;
-            histo->Rebin(rebinFactor); // Adjust the rebinning factor to achieve the desired number of bins
-    
-    
-
-    
-
-    fitf_master = (TH1F*)histo->Clone("fmaster");
-    fitf_master->Smooth(2);
-
-    grff = new TGraph(fitf_master);
-
-    TH1F* htally = new TH1F("htally", "", 2000, 0, 2);
+    TH1F *htally = new TH1F("htally", "", 2000, 0, 2);
     int nhistobins = 400;
-    
-    // Use provided canvas for histograms (e.g., c1, c2, c3)
-    histCanvas->cd();  // Select the canvas
+
+    histCanvas->cd();  // Use provided canvas for histograms
 
     for (int k = 0; k < 16; k++) {
+        TF1 *myexp = new TF1("myexp", "90000.0*exp([0]+[1]*x)", 0.3, 6);
+        myexp->SetParameters(0, -1.0);
+
         gRandom->SetSeed(9939 + offset + k);
-
-        TH1F* h1 = new TH1F("h1", "", nhistobins, 0, 10);
-
+        TH1F *h1 = new TH1F("h1", "", nhistobins, 0, 10);
         for (int i = 0; i < stats; i++) {
-            h1->Fill(histo->GetRandom());
+            h1->Fill(myexp->GetRandom());
         }
 
-        fitf_master = (TH1F*)h1->Clone("fmaster");
+        fitf_master = (TH1F *) h1->Clone("fmaster");
         fitf_master->Smooth(2);
 
         grff = new TGraph(fitf_master);
 
-        TH1F* h2 = new TH1F("h2", "", nhistobins, 0, 10);
+        TH1F *h2 = new TH1F("h2", "", nhistobins, 0, 10);
         gRandom->SetSeed(9939 + k);
-
         for (int j = 0; j < stats / 7; j++) {
-            h2->Fill(histo->GetRandom() * shift_factor);
+            h2->Fill(myexp->GetRandom() * shift_factor);
         }
 
         float startFit = 0.5;
         float endFit = 1.3;
-
         int binsf = h1->FindBin(startFit);
         int binef = h1->FindBin(endFit);
 
@@ -96,20 +62,17 @@ void testslope(int stats, double shift_factor, string f_1, string f_2, double st
 
         TF1* myexpo = new TF1("myexpo", fitf, 0.1, 10, 2);
         myexpo->SetParameters(1e4, 1.0);
-        h2->Fit("myexpo", "", "", startR, EndR);
-        h1->Fit("myexpo", "", "", startR, EndR); 
+        TFitResultPtr fitResult1 = h1->Fit("myexpo", "S", "", startR, EndR);
+        TFitResultPtr fitResult2 = h2->Fit("myexpo", "S", "", startR, EndR);
         h1->SetLineColor(2);
         h2->SetLineColor(3);
         h1->Draw("same");
         h2->Draw("same"); 
-        TF1 * ff2 = h2->GetFunction("myexpo");
-        float basep1 = 1.0;
-        float shiftp1 = ff2->GetParameter(1);
-        cout << "==== ratio is " << basep1 / shiftp1 << endl;
-        cout << "param 0 " << ff2->GetParameter(0) << endl;
-        htally->Fill(ff2->GetParError(1));
+
+        vector<double> C_rel_values;
+        vector<double> C_rel_uncertainties;
   
-     /*
+     
         // Check if the fits were successful
         if (fitResult1.Get() && fitResult2.Get()) {
             double basep1 = fitResult1->Parameter(1);
@@ -135,17 +98,15 @@ void testslope(int stats, double shift_factor, string f_1, string f_2, double st
         } else {
             cout << "Warning: Fit failed, skipping this iteration." << endl;
         }
-       */
-       
        
        /*
         double basep1 = fitResult1->Parameter(1);
         double shiftp1 = fitResult2->Parameter(1);
         double sigma_basep1 = fitResult1->ParError(1);
         double sigma_shiftp1 = fitResult2->ParError(1);
-        htally->Fill(basep1/shiftp1);  // Fill htally with each C_rel
+        htally->Fill(sigma_shiftp1);  // Fill htally with each C_rel
         cout << "Iteration " << k << ": p_1shift = " << shiftp1  << " ± " << sigma_shiftp1  << endl;
-       */ 
+       */
        
        
        
@@ -193,7 +154,7 @@ void mill () {
      testslope(1e6, 1.25, "Histo_Shape1", "Histo_tally1", 1.4, 3.0, c6, c6b);
     
     
-    TFile *Spectral_data = new TFile("Spectral_mill_events_Utally.root", "RECREATE"); 
+    TFile *Spectral_data = new TFile("E_Spectral_mill_events_U_prtally.root", "RECREATE"); 
     
       c1->Write(); 
      c2->Write();
@@ -253,7 +214,7 @@ void ten_mill () {
     testslope(1e7, 1.25, "Histo_Shape1", "Histo_tally1", 1.4, 3.0, c6, c6b);
     
     
-    TFile *Spectral_data2 = new TFile("Spectral_Uten_mill_events.root", "RECREATE"); 
+    TFile *Spectral_data2 = new TFile("E_Spectral_U_prten_mill_events.root", "RECREATE"); 
     
      c1->Write(); 
      c2->Write();
@@ -303,7 +264,7 @@ void hun_mill_low () {
    
     
     
-    TFile *Spectral_data3 = new TFile("Spectral_U_100_mill_eventsL.root", "RECREATE"); 
+    TFile *Spectral_data3 = new TFile("E_Spectral_Upr_100_mill_eventsL.root", "RECREATE"); 
     
      c1->Write(); 
      c2->Write();
@@ -342,7 +303,7 @@ void hun_mill_high() {
     testslope(1e8, 1.0, "Histo_Shape1", "Histo_tally1", 1.4, 3.0, c5, c5b);
     testslope(1e8, 1.25, "Histo_Shape1", "Histo_tally1", 1.4, 3.0, c6, c6b);
     
-    TFile *Spectral_data4 = new TFile("Spectral_U_100_mill_eventsH.root", "RECREATE"); 
+    TFile *Spectral_data4 = new TFile("E_Spectral_Upr_100_mill_eventsH.root", "RECREATE"); 
 
     c4->Write(); 
     c5->Write(); 
@@ -398,7 +359,7 @@ void five_mill () {
     testslope(5e6, 1.25, "Histo_Shape1", "Histo_tally1", 1.4, 3.0, c6, c6b);
     
     
-    TFile *Spectral_dataA = new TFile("Spectral_U_five_mill_events.root", "RECREATE"); 
+    TFile *Spectral_dataA = new TFile("E_Spectral_Upr_five_mill_events.root", "RECREATE"); 
     
      c1->Write(); 
      c2->Write();
@@ -417,27 +378,6 @@ void five_mill () {
      Spectral_dataA->Close(); 
      
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
