@@ -73,6 +73,14 @@ void testslope(int stats, double shift_factor, double startR, double EndR, TCanv
         for (int j = 0; j < stats / 7; j++) {
             h2->Fill(histo->GetRandom() * shift_factor);
         }
+        
+        float startFit = 0.5;
+        float endFit = 1.3;
+        int binsf = h1->FindBin(startFit);
+        int binef = h1->FindBin(endFit);
+
+        float amprat = h1->GetBinContent(binsf) / h2->GetBinContent(binsf);
+
 
         TF1* myexpo = new TF1("myexpo", fitf, 0.1, 10, 2);
         myexpo->SetParameters(1e4, 1.0);
