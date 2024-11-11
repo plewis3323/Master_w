@@ -155,8 +155,8 @@ void testslope(int stats, double shift_factor, double startR, double EndR, TCanv
         cout << "==== ratio is " << basep1 / shiftp1 << endl;
         cout << "param 0 " << ff2->GetParameter(0) << endl;
         cout << "Iteration " << k << ": p_1shift = " << shiftp1 << " ± " << ff2->GetParError(1) << endl;
-        htally->Fill(ff2->GetParError(1));
-        // htally->Fill(basep1 / shiftp1);
+       // htally->Fill(ff2->GetParError(1));
+         htally->Fill(basep1 / shiftp1);
     }
 
     tallyCanvas->cd();
