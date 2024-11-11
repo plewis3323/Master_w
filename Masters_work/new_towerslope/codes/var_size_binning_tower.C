@@ -77,18 +77,17 @@ Double_t fitf(Double_t *x,Double_t *par)
 }
 
 
-void testslope(int stats, double shift_factor, string f_1, string f_2, double StartR, double EndR)
+void testslope(int stats, double shift_factor, double startR, double EndR, TCanvas* histCanvas, TCanvas* tallyCanvas)
 { 
 
 
-    string f_e = ".root";
-    TCanvas *c1 = new TCanvas("c1");
 
   int offset = 5;
 
   TH1F * htally = new TH1F("htally","",2000,0,2);
 
   int nhistobins = 400;
+  histCanvas->cd(); // Use provided canvas for histograms
 
   for (int k = 0; k < 16; k++) {
 
@@ -145,53 +144,66 @@ void testslope(int stats, double shift_factor, string f_1, string f_2, double St
 
         TF1* myexpo = new TF1("myexpo", fitf, 0.1, 10, 2);
         myexpo->SetParameters(1e4, 1.0);
-
-        rebinnedHist2->Fit("myexpo", "", "", StartR, EndR);
-
+        rebinnedHist2->Fit("myexpo", "", "", startR, EndR);
         rebinnedHist1->SetLineColor(2);
         rebinnedHist1->Draw("same");
-         string savePath1 = f_1 + f_e;
-         c1->SaveAs(savePath1.c_str());
-
         TF1* ff2 = rebinnedHist2->GetFunction("myexpo");
 
         float basep1 = 1.0;
         float shiftp1 = ff2->GetParameter(1);
-
+   
         cout << "==== ratio is " << basep1 / shiftp1 << endl;
         cout << "param 0 " << ff2->GetParameter(0) << endl;
-
-        htally->Fill(basep1 / shiftp1);
+        cout << "Iteration " << k << ": p_1shift = " << shiftp1 << " ± " << ff2->GetParError(1) << endl;
+        htally->Fill(ff2->GetParError(1));
+        // htally->Fill(basep1 / shiftp1);
     }
 
-    TCanvas* c2 = new TCanvas("c2tally");
+    tallyCanvas->cd();
     htally->Draw();
-    string savePath2 = f_2 + f_e;
-    c2->SaveAs(savePath2.c_str());
 }
 
 
 
+void Run1(int stats1, const string& output_file)
+{
+    TCanvas* c1 = new TCanvas("c1");
+    TCanvas* c2 = new TCanvas("c2");
+    TCanvas* c3 = new TCanvas("c3");
+    TCanvas* c1a = new TCanvas("c1tally");
+    TCanvas* c2a = new TCanvas("c2tally");
+    TCanvas* c3a = new TCanvas("c3tally");
+    TCanvas* c4 = new TCanvas("c4");
+    TCanvas* c5 = new TCanvas("c5");
+    TCanvas* c6 = new TCanvas("c6");
+    TCanvas* c4a = new TCanvas("c4tally");
+    TCanvas* c5a = new TCanvas("c5tally");
+    TCanvas* c6a = new TCanvas("c6tally");
 
-void Run1 () {
+    // Call testslope with corrected arguments
+    testslope(stats1, 0.75, 0.5, 1.2, c1, c1a);
+    testslope(stats1, 1.0, 0.5, 1.2, c2, c2a);
+    testslope(stats1, 1.25, 0.5, 1.2, c3, c3a);
+    testslope(stats1, 0.75, 1.4, 3.0, c4, c4a);
+    testslope(stats1, 1.0, 1.4, 3.0, c5, c5a);
+    testslope(stats1, 1.25, 1.4, 3.0, c6, c6a);
 
-    testslope(1e6, 0.75, "Var_Shape1", "Var_tally1", 0.5, 1.2);
-    testslope(1e6, 1.0, "Var_Shape2", "Var_tally2", 0.5, 1.2);
-    testslope(1e6, 1.25, "Var_Shape3", "Var_tally3", 0.5, 1.2); 
-    testslope(1e6, 0.75, "Var_Shape4", "Var_tally4", 1.4, 3.0);
-    testslope(1e6, 1.0, "Var_Shape5", "Var_tally5", 1.4, 3.0);
-    testslope(1e6, 1.25, "Var_Shape6", "Var_tally6", 1.4, 3.0); 
-    testslope(10e6, 0.75, "Var_Shape7", "Var_tally7", 0.5, 1.2);
-    testslope(10e6, 1.0, "Var_Shape8", "Var_tally8", 0.5, 1.2);
-    testslope(10e6, 1.25, "Var_Shape9", "Var_tally9", 0.5, 1.2); 
-    testslope(10e6, 0.75, "Var_Shape10", "Var_tally10", 1.4, 3.0);
-    testslope(10e6, 1.0, "Var_Shape11", "Var_tally11", 1.4, 3.0);
-    testslope(10e6, 1.25, "Var_Shape12", "Var_tally12", 1.4, 3.0); 
-
-
+    // Save canvases to the output file
+    TFile* outFile = new TFile(output_file.c_str(), "RECREATE");
+    c1->Write();
+    c2->Write();
+    c3->Write();
+    c1a->Write();
+    c2a->Write();
+    c3a->Write();
+    c4->Write();
+    c5->Write();
+    c6->Write();
+    c4a->Write();
+    c5a->Write();
+    c6a->Write();
+    outFile->Close();
 }
-
-
 
 
 
