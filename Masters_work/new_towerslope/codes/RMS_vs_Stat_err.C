@@ -76,7 +76,7 @@ void Mill_Mean_input() {
             graphs[i]->Draw("AP");
             graphs[i]->GetXaxis()->SetTitle("Statistical Error");
             graphs[i]->GetYaxis()->SetTitle("RMS");
-            graphs[i]->GetXaxis()->SetLimits(-0.07, 0.07);  // Fixed x-axis range
+            graphs[i]->GetXaxis()->SetLimits(-1.07, 0.07);  // Fixed x-axis range
             graphs[i]->SetMinimum(-0.1);             // Fixed y-axis range
             graphs[i]->SetMaximum(0.1);
         } else {
