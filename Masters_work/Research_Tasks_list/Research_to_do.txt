@@ -14,11 +14,12 @@ D. Analyze results/Write down what's seen and notices (Latex/word document repor
 2.  l_3 studies:  ()
 A. RMS_Staterror plot with a trend on locus of points (Draw Region/best fit) (all statistics) 
 B. RMS_Staterror plot with a trend on locus of points (Draw Region/best fit) (all statistics_Low pt) 
-C. RMS_Staterror plot with a trend on locus of points (Draw Region/best fit) (all statistics and energies) (Both l3 and Exp datas) 
-D. Research another correlation test and test it on RMS/staterror plot or another one genrally on l3. Look up how it could affect p1 measurements of this 
-E. Aswer question why RMS/Staterror tests matter and how it affects whole method.  (Try this) 
-F. For errors on logscales tally try to find distribution connections, chi-square, or any other affects on the p1 error's to adjust.  
-G.  Analyze results/Write down what's seen and notices (Latex/word document report) (Write problem/answer why to do this and properties) 
+C. RMS_Staterror plot with a trend on locus of points (Draw Region/best fit) (all statistics_Low pt) (High and Low P_1's)
+D. RMS_Staterror plot with a trend on locus of points (Draw Region/best fit) (all statistics and energies) (Both l3 and Exp datas) 
+E. Research another correlation test and test it on RMS/staterror plot or another one genrally on l3. Look up how it could affect p1 measurements of this 
+F. Aswer question why RMS/Staterror tests matter and how it affects whole method.  (Try this) 
+G. For errors on logscales tally try to find distribution connections, chi-square, or any other affects on the p1 error's to adjust.  
+H.  Analyze results/Write down what's seen and notices (Latex/word document report) (Write problem/answer why to do this and properties) 
 
 
 3. Quick Redo Exponential Studies (Redo: all pt, 1 mill 10 mill 100 mill):  ()
