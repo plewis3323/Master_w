@@ -26,57 +26,31 @@ Double_t fitf(Double_t* x, Double_t* par)
 void testslope(int stats, double shift_factor, double startR, double EndR, TCanvas* histCanvas, TCanvas* tallyCanvas)
 {
     int offset = 5;
-
-    // Load the histogram from the hardcoded input file
-    TFile* file = TFile::Open("l3all_oe.root");
-    if (!file || file->IsZombie()) {
-        cout << "Failed to open the input file: l3all_oe.root" << endl;
-        return;
-    }
-    TH1F* histo = (TH1F*)file->Get("hcalout_eta_24"); // Use the actual histogram name from the file
-    if (!histo) {
-        cout << "Failed to get the histogram from: l3all_oe.root" << endl;
-        return;
-    }
-
-    // Rebin the histogram to reduce the number of bins
-    int originalBins = histo->GetNbinsX();
-    int targetBins = 100000;
-    int rebinFactor = originalBins / targetBins;
-    histo->Rebin(rebinFactor);
-
-    fitf_master = (TH1F*)histo->Clone("fmaster");
-    fitf_master->Smooth(2);
-
-    grff = new TGraph(fitf_master);
-
     TH1F* htally = new TH1F("htally", "", 2000, 0, 2);
     int nhistobins = 400;
 
     // Use provided canvas for histograms
     histCanvas->cd();
    
-   
-   
     double shift_p1_measure = 0.0; 
     double U_shift_p1_measure = 0.0;
     for (int k = 0; k < 16; k++) {
+        TF1 *myexp = new TF1("myexp", "90000.0*exp([0]+[1]*x)", 0.3, 6);
+        myexp->SetParameters(0, -1.0);
         gRandom->SetSeed(9939 + offset + k);
-
         TH1F* h1 = new TH1F("h1", "", nhistobins, 0, 10);
         for (int i = 0; i < stats; i++) {
-            h1->Fill(histo->GetRandom());
+            h1->Fill(myexp->GetRandom());
         }
 
         fitf_master = (TH1F*)h1->Clone("fmaster");
         fitf_master->Smooth(2);
-
         grff = new TGraph(fitf_master);
 
         TH1F* h2 = new TH1F("h2", "", nhistobins, 0, 10);
         gRandom->SetSeed(9939 + k);
         for (int j = 0; j < stats / 7; j++) {
-            h2->Fill(histo->GetRandom() * shift_factor);
+            h2->Fill(myexp->GetRandom() * shift_factor);
         }
         
         float startFit = 0.5;
@@ -150,8 +124,8 @@ void Run1(int stats, const string& output_file)
 
     // Event labels for readability
     string Event_S[6] = {
-        "1Mill_0.75_LR", "1Mill_1.0_LR", "1Mill_1.25_LR",
-        "1Mill_0.75_HR", "1Mill_1.0_HR", "1Mill_1.25_HR"
+        "100Mill_0.75_LR", "100Mill_1.0_LR", "100Mill_1.25_LR",
+        "100Mill_0.75_HR", "100Mill_1.0_HR", "100Mill_1.25_HR"
     };
 
     // Loop through the test configurations
@@ -172,380 +146,6 @@ void Run1(int stats, const string& output_file)
     }
     outFile->Close();
 }
-
-
-
-  
-     /*
-        // Check if the fits were successful
-        if (fitResult1.Get() && fitResult2.Get()) {
-            double basep1 = fitResult1->Parameter(1);
-            double shiftp1 = fitResult2->Parameter(1);
-
-            double sigma_basep1 = fitResult1->ParError(1);
-            double sigma_shiftp1 = fitResult2->ParError(1);
-
-            // Calculate C_rel and its uncertainty for this iteration
-            double C_rel = basep1 / shiftp1;
-            double sigma_C_rel = C_rel * sqrt(
-                pow(sigma_basep1 / basep1, 2) +
-                pow(sigma_shiftp1 / shiftp1, 2)
-            );
-
-            // Store the calculated C_rel and uncertainty
-            C_rel_values.push_back(C_rel);
-            C_rel_uncertainties.push_back(sigma_C_rel);
-
-            cout << "Iteration " << k << ": C_rel = " << C_rel << " ± " << sigma_C_rel << endl;
-
-            htally->Fill(sigma_C_rel);  // Fill htally with each C_rel
-        } else {
-            cout << "Warning: Fit failed, skipping this iteration." << endl;
-        }
-       */
-       
-       
-       /*
-        double basep1 = fitResult1->Parameter(1);
-        double shiftp1 = fitResult2->Parameter(1);
-        double sigma_basep1 = fitResult1->ParError(1);
-        double sigma_shiftp1 = fitResult2->ParError(1);
-        htally->Fill(basep1/shiftp1);  // Fill htally with each C_rel
-        cout << "Iteration " << k << ": p_1shift = " << shiftp1  << " ± " << sigma_shiftp1  << endl;
-       */ 
-       
-       
-       
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
