@@ -1,0 +1,133 @@
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+                                                               2nd Towerslope iterations of new testslope_code
+															   
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+                                        * Preliminaries of Data Run of testslope_code:
+										
+								
+1.  T ->  Number of Trials
+
+2.  n -> number of measurements 
+
+3.  u -> mean representing htally measurements 
+
+4.  T = 7 trial runs: p = 0.5, ...., 3.5 (shift factors)
+
+5.  n = 16 measurements of htally histograms 
+
+6.  Edits of Testslope Code: 
+
+- Added headers: #include <string>,  #include <iostream>,  using namespace std; 
+
+- New parameters to void testslope:  void testslope(int stats, double shift_factor, string f_1, string f_2)
+
+- file extension:  string f_e = ".pdf"(".png") ; 
+
+- TCanvas *c1 = new TCanvas("c1"); 
+
+- h2 -> Fill(myexp->GetRandom() * shift_factor); 
+
+- string savePath1 = f_1 + f_e ; 
+  c1 -> SaveAs(savePath1.c_str());
+  
+- string savePath2 = f_2 + f_e ;
+  c2 -> SaveAs(savePath2.c_str()); 
+  
+- Macro to run: void Run_Function(); here is the number of trial runs from testslope. (with parameters)
+
+7. m -> number of events:  m = 7e6 events (counts) 
+
+8. f_1(x) = a/(x + b) ^c  (function used for fitting) 
+
+9. sigma -> standard deviation of measurements
+
+ 
+ -------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+                                                          Trials Runs and Data for  new_testslope_code
+														  
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+* T = 1, m = 7e6,  n = 16:
+
+- u = 0.4993 
+
+- sigma = 0.004984 = 0.4984 % rel error 
+( shift factor = 0.5) 
+
+
+* T = 2, m = 7e6, n = 16: 
+
+- u = 0.998 
+
+- sigma = 0.003784 = 0.3784 % rel error 
+  ( shift factor = 1.0) 
+  
+
+* T = 3, m = 7e6, n = 16: 
+
+- u = 1.407 
+
+- sigma = 0.1122 = 11.22 % rel error 
+  (shift factor = 1.5) 
+  
+  
+* T = 4, m = 7e6, n = 16: 
+
+- u = 1.704
+
+- sigma = 0.1404 = 14.04 % rel error 
+  (shift factor = 2.0) 
+  
+  
+* T = 5, m = 7e6, n = 16: 
+
+- u = 1.246
+
+- sigma = 0.3828 = 38.28 % rel error 
+  (shift factor = 2.5) 
+  
+  
+* T = 6, m = 7e6, n = 16: 
+
+- u = 1.017 
+
+- sigma = 0.009425 = 0.9424 % rel error 
+  (shift factor = 3.0) 
+  
+  
+* T = 7, m = 7e6, n = 16: 
+
+- u = 1.189 
+
+- sigma = 0.2125 = 21.25 % rel error 
+  (shift factor = 3.5) 
+  
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                               Trial runs new testslope (every: .1 iteration) 
+															   
+															  p = 0.1, ....,0.9; (1)
+                                                              p = 1.0, ...... , 1.9; (2)
+															  p = 2.0, ........,  2.9; (3)
+															  p = 3.0, ........, 3.9; (4)
+															  
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+                                Trial Runs for  (p = 0.1, ....,0.9; (1) ): 
+								
+								
+	- T = 1
+
+
+
+											
+ 
+ 
+ 
+ 
+ 
